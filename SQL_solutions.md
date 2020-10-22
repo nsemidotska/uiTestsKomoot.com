@@ -1,4 +1,4 @@
-###Return Employee record with highest salary
+### Return Employee record with highest salary
 
 ```sql
 SELECT * 
@@ -6,14 +6,14 @@ FROM Employee
 WHERE salary = (SELECT MAX(salary) FROM Employee);
 ```
 
-###Return the highest salary in employee table
+### Return the highest salary in employee table
 
 ```sql
 SELECT MAX(salary) AS "Highest Salary"
 FROM Employee;
 ```
 
-###Return 2nd highest salary from employee table
+### Return 2nd highest salary from employee table
 
 ```sql
 SELECT max(salary) 
@@ -23,7 +23,7 @@ WHERE salary NOT IN
   FROM Employee);
 ```
 
-###Select range of employees based on id
+### Select range of employees based on id
 
 ```sql
 SELECT first_name, last_name, department_id
@@ -32,7 +32,7 @@ WHERE department_id IN (1, 2)
 ORDER BY  department_id  ASC;
 ```
 
-###Return an employee with highest salary and the employee’s department name
+### Return an employee with highest salary and the employee’s department name
 
 ```sql
 SELECT e.*, d.department_name 
@@ -42,7 +42,7 @@ FROM Employee)
 AND e.department_id=d.department_id;
 ```
 
-###Return highest salary, employee_name, department_name for EACH department
+### Return highest salary, employee_name, department_name for EACH department
 
 ```sql
 SELECT e.salary, e.department_id, e.first_name, e.last_name, d.department_name
