@@ -15,6 +15,9 @@ public class UserAccountPage {
     @FindBy(xpath = "//*[@id=\"pageMountNode\"]/div/div[2]/div/div/div[2]/div[3]/div[3]/a/div/span")
     WebElement dropDownMenu;
 
+    @FindBy(xpath = "//*[@id=\"pageMountNode\"]/div/div[2]/div/div/div[2]/div[3]/div[3]/div/div/ul[2]/li[3]/a")
+    WebElement settingsMenuBtn;
+
     @FindBy(xpath = "//*[@id=\"pageMountNode\"]/div/div[2]/div/div/div[2]/div[3]/div[3]/div/div/ul[2]/li[4]/a")
     WebElement logOutBtn;
 
@@ -34,15 +37,30 @@ public class UserAccountPage {
         dropDownMenu.click();
     }
 
+    public void clickSettingsBtn () {
+
+        settingsMenuBtn.click();
+
+    }
+
     public void clickLogoutBtn (){
         try {
             Thread.sleep(1500);
         } catch (InterruptedException e) {
         }
+
         logOutBtn.click();
     }
 
-    public void checkUserLoggedOut () {
+
+    public void  goToAccountSettingsURL (){
+
+        driver.get( "https://www.komoot.com/account");
+    }
+
+
+
+    public void checkUserRedirectedToSignIn() {
 
         try {
             Thread.sleep(1500);
@@ -50,7 +68,7 @@ public class UserAccountPage {
         }
 
         String strUrl = driver.getCurrentUrl();
-        assertEquals( strUrl, "https://www.komoot.com/");
+        assertEquals( strUrl, "https://account.komoot.com/signin?redirect=%2Faccount%3F_redirected%3D1&reason=account");
 
     }
 

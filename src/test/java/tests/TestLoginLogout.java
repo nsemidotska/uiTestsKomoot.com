@@ -42,8 +42,11 @@ public class TestLoginLogout {
     public void logout() {
         objUserAccountPage = new UserAccountPage(driver);
         objUserAccountPage.clickMenuBtn();
+        objUserAccountPage.clickSettingsBtn();
+        objUserAccountPage.clickMenuBtn();
         objUserAccountPage.clickLogoutBtn();
-        objUserAccountPage.checkUserLoggedOut();
+        objUserAccountPage.goToAccountSettingsURL();
+        objUserAccountPage.checkUserRedirectedToSignIn();
 
     }
 //===========================================================

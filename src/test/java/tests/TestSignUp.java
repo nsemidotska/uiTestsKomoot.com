@@ -51,7 +51,9 @@ public class TestSignUp {
         objSignUpPage.enterUserName("sdsfUser");
         objSignUpPage.enterPassword("sdfsdfUserPassword");
         objSignUpPage.clickOnSignUpBtn ();
-//      objSignUpPage.checkSignUpSuccesfully();
+
+        //CAPTHCA ??? RANDOMLY ????
+        //objSignUpPage.checkSignUpSuccesfully();
     }
 
     @AfterTest
