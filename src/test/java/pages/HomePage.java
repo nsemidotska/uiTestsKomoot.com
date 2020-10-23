@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 public class HomePage {
 
     WebDriver driver;
@@ -23,11 +26,10 @@ public class HomePage {
     }
 
     public void clickOnSignUpOrSignIn() {
-// UPDATE TO BEAUTIFUL STYLE
-        try {
-            Thread.sleep(2500);
-        } catch (InterruptedException e) {
-        }
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(signUpBtn));
+        ////////Waiter
         signUpBtn.click();
     }
 

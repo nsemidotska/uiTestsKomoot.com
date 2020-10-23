@@ -46,8 +46,8 @@ public class TestLoginLogout {
         objUserAccountPage.clickMenuBtn();
         objUserAccountPage.clickLogoutBtn();
         objUserAccountPage.goToAccountSettingsURL();
-        objUserAccountPage.checkUserRedirectedToSignIn();
-
+        objSignInPage = new SignInPage(driver);
+        objSignInPage.checkUserRedirectedToSignIn();
     }
 //===========================================================
     @AfterTest

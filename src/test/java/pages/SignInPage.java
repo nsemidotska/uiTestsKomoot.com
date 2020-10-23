@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class SignInPage {
@@ -49,10 +51,10 @@ public class SignInPage {
     }
 
     public void clickOnContinueWithEmailBtn() {
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-        }
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(continueWithEmailBtn));
+        ////////Waiter
         continueWithEmailBtn.click();
     }
 
@@ -68,39 +70,50 @@ public class SignInPage {
     };
 
     public void enterEmail(String arg1) {
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-        }
-
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(emailAddress));
+        ////////Waiter
         emailAddress.sendKeys(arg1);
     }
 
     public void enterPassword(String arg1) {
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-        }
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(password));
+        ////////Waiter
         password.sendKeys(arg1);
     }
 
     public void clickLogInButton (){
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-        }
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(LogInButton));
+        ////////Waiter
         LogInButton.click();
     }
 
     public void checkUsernameDisplayed () {
-
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-        }
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(username));
+        ////////Waiter
 
         String usernameText = username.getText().trim();
         assertEquals( usernameText, "John Doe");
+
+    }
+
+
+    public void checkUserRedirectedToSignIn() {
+
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(emailAddress));
+        ////////Waiter
+
+        String strUrl = driver.getCurrentUrl();
+        assertEquals( strUrl, "https://account.komoot.com/signin?redirect=%2Faccount%3F_redirected%3D1&reason=account");
 
     }
 }

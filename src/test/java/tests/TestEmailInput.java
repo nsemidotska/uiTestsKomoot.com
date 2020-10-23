@@ -25,7 +25,7 @@ public class TestEmailInput {
 
     @Test(priority = 1)
     //Verify SignInSignUp email input with empty
-    public void homepage_clicOnSignUp_clickSignInWithEmptyEmail() {
+    public void homepageClickSignInWithEmptyEmail() {
         objHomePage = new HomePage(driver);
         objHomePage.clickOnSignUpOrSignIn();
         objSignInPage = new SignInPage(driver);
@@ -37,7 +37,7 @@ public class TestEmailInput {
 
 
     @Test(priority = 2)
-    //Verify SignInSignUp email input with incorrect email we@@sdfg.fdg
+    //Verify SignInSignUp email input with incorrect email
     public void clickSignInWithWrongEmailFormat() {
         objSignInPage.enterEmail("test@@test.test");
         objSignInPage.clickOnContinueWithEmailBtn();

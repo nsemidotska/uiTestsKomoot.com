@@ -1,12 +1,11 @@
 package pages;
 
-import static org.testng.Assert.assertEquals;
-import static org.testng.Assert.assertNotEquals;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class UserAccountPage {
 
@@ -30,10 +29,10 @@ public class UserAccountPage {
         PageFactory.initElements(driver, this);
     }
     public void clickMenuBtn (){
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-        }
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(dropDownMenu));
+        ////////Waiter
         dropDownMenu.click();
     }
 
@@ -44,32 +43,18 @@ public class UserAccountPage {
     }
 
     public void clickLogoutBtn (){
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-        }
+        ////////Waiter
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.visibilityOf(logOutBtn));
+        ////////Waiter
 
         logOutBtn.click();
     }
-
 
     public void  goToAccountSettingsURL (){
 
         driver.get( "https://www.komoot.com/account");
     }
 
-
-
-    public void checkUserRedirectedToSignIn() {
-
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-        }
-
-        String strUrl = driver.getCurrentUrl();
-        assertEquals( strUrl, "https://account.komoot.com/signin?redirect=%2Faccount%3F_redirected%3D1&reason=account");
-
-    }
 
 }

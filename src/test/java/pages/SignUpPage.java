@@ -1,6 +1,5 @@
 package pages;
 
-import static org.testng.Assert.assertEquals;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -37,57 +36,14 @@ public class SignUpPage {
     @FindBy(xpath = "//*[@id=\"pageMountNode\"]/div/div[3]/div/a")
     WebElement LetsGetStartedBtn;
 
+
+    @FindBy(xpath = "//*[@id=\"recaptcha-verify-button\"]")
+    WebElement captchaBtn;
+
     public SignUpPage(WebDriver driver) {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    public void verifySignUpSecondPageHeader() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-        }
-
-       // String signUpPageHeaderText = getPageHeaderText();
-        String secondPageSignUpForm = secondPageSignUpFormName.getText();
-        assertEquals(secondPageSignUpForm, "Create a new account");
-    }
-
-
-    public void enterEmailAddress(String arg1) {
-        emailAddress.sendKeys(arg1);
-    }
-
-    public void checkSignUpSuccesfully() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-        }
-        assertEquals(LetsGetStartedBtn.isDisplayed(),true);
-    }
-
-    public void enterUserName(String arg1) {
-        userName.sendKeys(arg1);
-    }
-
-    public void enterPassword(String arg1) {
-        password.sendKeys(arg1);
-    }
-
-    public void clickOnContinueWithEmailBtn() {
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-        }
-        continueWithEmailBtn.click();
-    }
-
-    public void clickOnSignUpBtn() {
-        signUpBtn.click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-        }
-    }
 
 }
