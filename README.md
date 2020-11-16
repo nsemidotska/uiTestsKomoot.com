@@ -7,6 +7,19 @@
 
 Follow instructions on the page: https://openjdk.java.net/install/
 
+### Installing Chromium driver
+
+Download from: https://chromedriver.storage.googleapis.com/index.html?path=86.0.4240.22/
+Copy executable file into project root. 
+Adjust if needed:
+
+``` System.setProperty("webdriver.chrome.driver", "webdrivers/chromedriver 11.30.16");```
+
+in the files 
+TestLoginLogout, TestDiscoverRoutesByCity, TestEmailInput.
+
+TODO: planned to move this into config file.
+
 ### Installing Maven
 
 Command line: 
